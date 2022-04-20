@@ -11,7 +11,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <link rel="stylesheet" href="{% static 'Mystyle.css' %}">
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
     <title>{% block title %}{% endblock title %}</title>
     <style>
         {% block css %}{% endblock css %}
@@ -26,18 +26,20 @@
             </div>
             <ul class="mb-0 px-0">
                 <li><a href="/index">Home</a></li>
-                <li><a href="About.html">About</a></li>
+                <li><a href="#">About</a></li>
                 <li><a href="/contacts">Contact</a></li>
 
             </ul>
-            <div class="search">
-                <input type="text" name="" id="" placeholder="Search For Products, Brands and more">
-            </div>
-            <div class="sIcon">
-                <span>
-                    <ion-icon name="search-outline" size="small"></ion-icon>
-                </span>
-            </div>
+            <form action="/search" method="get" class="searchForm">
+                <div class="search">
+                    <input type="text" name="query" id="query" placeholder="Search For Products, Brands and more" required>
+                </div>
+                <div class="sIcon">
+                    <span>
+                        <button class="searchBtn"><ion-icon name="search-outline" size="small"></ion-icon></button> 
+                    </span>
+                </div>
+            </form>
             <div class="log">
                 <form action="/">
                     <button class="btnn">Logout</button>
@@ -48,8 +50,8 @@
                 <ion-icon name="chevron-down-outline"></ion-icon>
             </div>
             <div class="mycart">
-                <a href=""><ion-icon name="cart" size="large"></ion-icon></a>
-                <a href="" class="carttext">Cart(<span id="cart"></span>)</a>
+                <a href="/mycart"><ion-icon name="cart" size="large"></ion-icon></a>
+                <a href="/mycart" class="carttext">Cart(<span id="cart"></span>)</a>
             </div>
         </nav>
         {% block body %}{% endblock body %}
@@ -73,7 +75,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
     {% block script %}
-    
+    <script>
+        if(localStorage.getItem('cart') == null){
+            let cart = {};
+            document.getElementById('cart').innerHTML = '0';
+        }
+        else{
+            cart = JSON.parse(localStorage.getItem('cart'))
+            document.getElementById('cart').innerHTML = Object.keys(cart).length;
+        }
+        $('.cart').click(function() {
+            window.location.reload(true)
+            let idstr = this.id.toString()
+            if(cart[idstr] != undefined){
+                cart[idstr] = cart[idstr] + 1;
+            }
+            else{
+                cart[idstr] = 1;
+            }
+            localStorage.setItem('cart', JSON.stringify(cart))
+            
+        });
+    </script>
     {% endblock script %}
     
 </body>

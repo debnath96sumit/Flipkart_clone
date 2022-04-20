@@ -46,3 +46,11 @@ def contacts(request):
 def details(request, id):
     myprod = product.objects.filter(id=id)
     return render(request, "detail.html", {'product': myprod[0]})
+
+def mycart(request):
+    return render(request, "cart.html")
+
+def search(request):
+    query = request.GET['query']
+    allproduct = product.objects.filter(name__icontains = query)
+    return render(request, 'fk_search.html', {'allproduct': allproduct})

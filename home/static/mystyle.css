@@ -43,12 +43,15 @@ nav ul li  a:hover {
     color: white;
 }
 
-.search{
+.searchForm{
+    display: flex;
+}
+.searchForm .search{
     display: flex;
     align-items: center;
     margin: 0 80px;
 }
-.search input{
+.searchForm .search input{
     width: 31vw;
     height: 30px;
     padding: 0 7px;
@@ -57,37 +60,20 @@ nav ul li  a:hover {
     font-size: small;
     font-family: 'Roboto', sans-serif;
 }
-.more ion-icon {
-    color: white;
-    margin: 3px 0 0 8px;
-  }
-.mycart{
-    display: flex;
-    margin: 9px 0 0 48px;
-    flex-direction: row;
-    justify-content: center;
-}
-.mycart ion-icon {
-    color: white;
-  }
-.mycart a{
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none; 
-}
-.carttext{
-    margin: 4px 2px;
-}
-.sIcon{
+.searchForm .sIcon{
     display: flex;
     align-items: center;
     margin: 0 0 -3px -102px;
 }
-.sIcon span{
+.searchBtn{
+    border: none;
+    background: transparent;
+}
+.searchForm .sIcon span{
     position: absolute;
     
 }
-.sIcon ion-icon {
+.searchForm .sIcon ion-icon {
     color: #2874f0;
 }
 .log{
@@ -114,6 +100,27 @@ nav ul li  a:hover {
     color: white;
     font-family: 'Roboto', sans-serif;
     margin: 16px 0 0 48px;
+}
+.more ion-icon {
+    color: white;
+    margin: 3px 0 0 8px;
+}
+.mycart{
+    display: flex;
+    margin: 9px 0 0 48px;
+    flex-direction: row;
+    justify-content: center;
+}
+.mycart ion-icon {
+    color: white;
+  }
+.mycart a{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none; 
+}
+.carttext{
+    margin: 4px 2px;
 }
 /* NAVBAR ends************* */
 /* MAIN BODY  STARTS***************** */
