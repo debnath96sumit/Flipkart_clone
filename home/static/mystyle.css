@@ -57,20 +57,20 @@ nav ul li  a:hover {
     font-size: small;
     font-family: 'Roboto', sans-serif;
 }
-.cart{
+.more ion-icon {
+    color: white;
+    margin: 3px 0 0 8px;
+  }
+.mycart{
     display: flex;
     margin: 9px 0 0 48px;
     flex-direction: row;
     justify-content: center;
 }
-.cart ion-icon {
+.mycart ion-icon {
     color: white;
   }
-.more ion-icon {
-    color: white;
-    margin: 3px 0 0 8px;
-  }
-.cart a{
+.mycart a{
     color: white;
     font-family: 'Roboto', sans-serif;
     text-decoration: none; 

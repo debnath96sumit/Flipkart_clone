@@ -34,3 +34,15 @@ def index(request):
     params = {'allproduct': allproduct}
     return render(request, "fk-index.html", params)
     
+def contacts(request):
+    if request.method == "POST":
+        email = request.POST['email']
+        name = request.POST['name']
+        desc = request.POST['desc']
+        mydata = contact(email=email, name=name, desc=desc)
+        mydata.save()
+    return render(request, "fk-contact.html")
+
+def details(request, id):
+    myprod = product.objects.filter(id=id)
+    return render(request, "detail.html", {'product': myprod[0]})
